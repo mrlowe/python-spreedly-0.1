@@ -4,6 +4,7 @@ from decimal import Decimal
 from xml.etree.ElementTree import fromstring
 from xml.etree import ElementTree as ET
 from base64 import b64encode
+import sys
 
 
 API_VERSION = 'v4'
@@ -28,6 +29,9 @@ class Client(object):
         self.base_path = '/api/%s/%s' % (API_VERSION, site_name)
         self.base_url = 'https://%s%s' % (self.base_host, self.base_path)
         self.url = None
+        print 'base url: ', self.base_url
+        print 'auth encoded:', self.auth
+        sys.stdout.flush()
 
     def get_response(self):
         return self.response
